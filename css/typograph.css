@@ -1,0 +1,15 @@
+nav,
+main,
+footer {
+  color: #d7d7d7d7;
+}
+
+#intro-section h2 {
+  font-size: 36px;
+  line-height: 42px;
+}
+
+#intro-section p {
+  font-size: 30px;
+  line-height: 36px;
+}

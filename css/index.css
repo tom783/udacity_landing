@@ -1,0 +1,25 @@
+section {
+  position: relative;
+  height: 100vh;
+}
+
+/* intro section */
+#intro-section .main-text {
+  position: absolute;
+  top: 110px;
+  left: 70px;
+}
+
+#intro-section .main-text h2:nth-of-type(2) {
+  padding-left: 220px;
+}
+
+#intro-section .main-text h2 + h2 {
+  margin-top: 15px;
+}
+
+h2.animation-slide-leftright {
+}
+
+h2.animation-slide-leftright {
+}

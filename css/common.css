@@ -1,0 +1,61 @@
+@import url("./reset.css");
+@import url("./typograph.css");
+
+body {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px minmax(100vh, auto) 100px;
+  background-color: #312626;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #062541;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+  z-index: 999;
+}
+
+nav.scroll-down {
+  visibility: hidden;
+  opacity: 0;
+}
+
+h1.logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: fit-content;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.nav-item {
+  padding: 0 15px;
+}
+
+.nav-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    min-width: 1024px;
+  }
+}
