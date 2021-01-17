@@ -6,7 +6,8 @@ body {
   position: relative;
   grid-template-columns: 1fr;
   grid-template-rows: 50px minmax(100vh, auto) 100px;
-  background-color: #312626;
+  background: #312626 url("../assets/img/artwork_cta_4.jpg") no-repeat center;
+  background-size: cover;
 }
 
 nav {
@@ -17,7 +18,7 @@ nav {
   background-color: #062541;
   opacity: 1;
   transition: opacity 0.2s linear;
-  z-index: 999;
+  z-index: 9999;
 }
 
 nav.scroll-down {
@@ -52,6 +53,11 @@ h1.logo {
   width: 100%;
   height: 100%;
   font-size: 24px;
+}
+
+footer {
+  background-color: #000;
+  padding: 30px;
 }
 
 @media screen and (max-width: 1024px) {
