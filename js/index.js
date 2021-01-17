@@ -11,6 +11,9 @@ function init() {
   const $introTextAnimationFade = document.querySelector(
     "#intro-section .sub-text"
   );
+  const $searchBar = document.querySelector(".search-bar");
+  const $searching = document.querySelector(".search input");
+  const $searchingButton = document.querySelector("#searching");
 
   function getScrollPosition() {
     let timerInstance = null;
@@ -36,6 +39,34 @@ function init() {
     });
   }
 
+  function getInputSearching() {
+    let timerInstance = null;
+    const listFrag = document.createDocumentFragment();
+    const searchList = document.createElement("ul");
+    const listItem = document.createElement("li");
+    searchList.classList.add("search-list");
+
+    if (!timerInstance) {
+      timerInstance = setTimeout(function () {
+        timerInstance = null;
+
+        $searching.addEventListener("input", (e) => {
+          const inputValue = e.target.value;
+          const resultArray = ["elements"];
+
+          if (resultArray) {
+            for (const item of resultArray) {
+              listItem.textContent = item;
+              listFrag.appendChild(listItem);
+            }
+            searchList.appendChild(listFrag);
+            $searchBar.appendChild(searchList);
+          }
+        });
+      }, 200);
+    }
+  }
+
   function setEvents() {
     $bannerVideoCover.addEventListener("click", (e) => {
       $bannerVideoCover.style.display = "none";
@@ -47,6 +78,7 @@ function init() {
     };
 
     getScrollPosition();
+    getInputSearching();
   }
 
   setEvents();

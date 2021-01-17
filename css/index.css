@@ -151,6 +151,11 @@ section {
   background: url("../assets/img/search_icon.svg") no-repeat center;
   cursor: pointer;
   text-indent: -9999px;
+  border: none;
+}
+
+.search #searching:focus {
+  outline: none;
 }
 
 .search-bar input:focus {
