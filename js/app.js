@@ -1,4 +1,20 @@
+const navItems = [
+  {
+    text: "Video",
+    link: "banner-section",
+  },
+  {
+    text: "Introduce",
+    link: "intro-section",
+  },
+  {
+    text: "Search",
+    link: "searching-section",
+  },
+];
+
 function init() {
+  const $nav = document.querySelector("ul.nav");
   const $bannerSection = document.querySelector("#banner-section");
   const $bannerVideoCover = document.querySelector(
     "#banner-section .video-cover"
@@ -15,7 +31,42 @@ function init() {
   const $searching = document.querySelector(".search input");
   const $searchingButton = document.querySelector("#searching");
 
-  function getScrollPosition() {
+  // create elements
+  function _createElements() {
+    navItems.forEach((item, idx) => {
+      const navList = document.createElement("li");
+      const navListItem = document.createElement("a");
+      idx === 0
+        ? navList.classList.add("nav-item", "target")
+        : navList.classList.add("nav-item");
+      navListItem.setAttribute("href", "#");
+      navListItem.setAttribute("data-link", item.link);
+      navListItem.textContent = item.text;
+      navList.appendChild(navListItem);
+      $nav.appendChild(navList);
+    });
+  }
+
+  function setScrollMove() {
+    const $navItems = $nav.querySelectorAll(".nav-item");
+    $navItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        document
+          .querySelectorAll(".nav-item")
+          .forEach((i) => i.classList.remove("target"));
+        e.target.parentNode.classList.add("target");
+        const target = e.target.getAttribute("data-link");
+        const targetSection = document.querySelector(`#${target}`);
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    });
+  }
+
+  function setScrollAnimation() {
     let timerInstance = null;
 
     document.addEventListener("scroll", (e) => {
@@ -39,7 +90,7 @@ function init() {
     });
   }
 
-  function getInputSearching() {
+  function setInputSearching() {
     let timerInstance = null;
     const listFrag = document.createDocumentFragment();
     const searchList = document.createElement("ul");
@@ -67,6 +118,7 @@ function init() {
     }
   }
 
+  // setting events
   function setEvents() {
     $bannerVideoCover.addEventListener("click", (e) => {
       $bannerVideoCover.style.display = "none";
@@ -77,10 +129,12 @@ function init() {
       $bannerVideoCover.style.display = "block";
     };
 
-    getScrollPosition();
-    getInputSearching();
+    setScrollAnimation();
+    setInputSearching();
+    setScrollMove();
   }
 
+  _createElements();
   setEvents();
 }
 

@@ -55,6 +55,11 @@ h1.logo {
   font-size: 24px;
 }
 
+.nav-item.target a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 footer {
   background-color: #000;
   padding: 30px;
