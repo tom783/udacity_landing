@@ -163,3 +163,15 @@ section {
 .search-bar input:focus {
   outline: none;
 }
+
+#contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact-section .section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
